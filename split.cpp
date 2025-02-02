@@ -17,7 +17,28 @@ the function below should be the only one in this file.
 void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
-// WRITE YOUR CODE HERE
+  // WRITE YOUR CODE HERE
+
+  // base case: if input is empty, odds and evens must also be empty
+  if (in == nullptr){
+    return;
+  }
+
+  // recursive step:
+  Node* temp = in;
+  in = in->next;
+  temp->next = nullptr;
+
+  split (in, odds, evens);
+
+  if (temp->value % 2 == 1){    // odd #
+    temp->next = odds;
+    odds = temp;
+  }
+  else {                        // even #
+    temp->next = evens;
+    evens = temp;
+  }
 }
 
 /* If you needed a helper function, write it here */
