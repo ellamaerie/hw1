@@ -7,6 +7,7 @@ class ULListStr {
  public:
   struct Item {
     std::string val[ARRSIZE];
+    
     /**
      * first and last indicate the occupied/used 
      * elements of the array where first is an
